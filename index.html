@@ -1,0 +1,284 @@
+<!-- original code taken from the browser tools of programming-vocab.netlify.app -->
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Comparing Syntax</title>
+    <meta name="description" content="Concept Highlight" />
+    <meta name="author" content="MSM" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <link
+      id="prismstyle"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/themes/prism.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/line-numbers/prism-line-numbers.min.css"
+      integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="theme default-theme">
+    <header class="app-header">
+      <div class="header-layout">
+        <div class="header">
+          <div class="header-left">
+            <h1 class="site-name">JavaScript Vocabulary</h1>
+          </div>
+
+          <div class="header-right">
+            <a class="lang-btn javascript" href="#" data-lang="javascript" data-state="active" value="javascript">JavaScript</a>
+            <a class="lang-btn java selected" href="#" data-lang="java" data-state="inactive" value="java">Java</a>
+            <a class="lang-btn csharp" href="#" data-lang="csharp" data-state="inactive" value="csharp">C#</a>
+            <a class="lang-btn typescript" href="#" data-lang="typescript" data-state="inactive" value="typescript">TypeScript</a>
+            <a class="lang-btn ruby" href="#" data-lang="ruby" data-state="inactive" value="ruby">Ruby on Rails</a>
+            <label class="theme-switcher">
+              <input
+                type="checkbox"
+                name="dark-theme"
+                class="theme-switcher hidden"
+                value="dark"
+                checked
+              />
+              <span class="them-switcher-slider">
+                <svg xlmns="http://www.w3.org/2000/svg" width="24" height="24">
+                  <g fill="none" fill-rule="evenodd">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11.5"
+                      stroke="currentColor"
+                    ></circle>
+                    <path
+                      fill="currentColor"
+                      d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12z"
+                    ></path>
+                  </g>
+                </svg>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- prettier-ignore-start -->
+      <div class="code-block">
+        <pre class="line-numbers language-javascript">
+<code class="language-javascript vocab-code"><div class="block-concept class-block">//quick syntax
+let pets = [];
+pets.push("cat");
+
+
+for (let i = 0; i < 4; i++) {
+  total += arr[i];
+}
+</div>
+  
+  
+<div class="block-concept class-block">class Product {
+  <span class="variable-declaration class-property">price;</span>
+  <span class="code-concept variable-declaration class-property">manufacturer;</span>
+</div>
+
+  <div class="block-concept constructor">constructor<span class="parameter-list">(price, manufacturer</span>) {
+    <span class="variable-init class-properties">this.price = price;</span>
+    <span class="variable-init class-properties">this.manufacturer = manufacturer;</span>
+}</div>
+
+  <div class="block-concept method getter"><span class="method-sig">get <span class="method-name">price</span>()</span> {
+    return this.price;
+}</div>
+
+  <div class="block-concept method setter"><span class="method-sig">set <span class="method-name">price</span>()</span> {
+    if (price < 0.00) {
+        console.log("Price cannot be negative.");
+    } else {
+        this.price = price;
+    }
+}</div>
+  
+  <div class="block-concept method getter"><span class="method-sig">get <span class="method-name">manufacturer</span>()</span> {
+    return this.manufacturer;
+}</div>
+   
+  <div class="block-concept method setter"><span class="method-sig">set <span class="method-name">manufacturer</span>(<span class="parameter-list">manufacturer</span>)</span> {
+    this.manufacturer = manufacturer;
+}</div>
+}
+
+<div class="block-concept class-block">class Book extends Product {
+  <span class="variable-declaration class-property">title = "";</span>
+  <span class="code-concept variable-declaration class-property">authors = [];</span>
+  <span class="code-concept variable-declaration class-property">#privateprop;</span>
+
+  <div class="block-concept constructor">constructor(<span class="parameter-list">price, manufacturer, title, authors, privateprop</span>) {
+    // must reference superclass constructor elements first
+    <span class="variable-init class-properties">super(price);</span>
+    <span class="variable-init class-properties">super(manufacturer);</span>
+    <span class="variable-init class-properties">this.title = title;</span>
+    <span class="variable-init class-properties">this.authors = <span class="method-call">copyArray(authors)</span>;</span>
+    // this property cannot be accessed outside of the class (but it can be in Chrome)
+    <span class="variable-init class-properties">this.#privateprop = privateprop;</span>
+}</div>
+    
+  <div class="block-concept method getter"><span class="method-sig">get <span class="method-name">title</span>()</span> {
+    return this.title;
+}</div>
+    
+  <div class="block-concept method getter"><span class="method-sig">get <span class="method-name">authors</span>()</span> {
+    return this.authors;
+}</div>
+
+  <div class="block-concept method shallow-copy"><span class="method-sig"><span class="method-name">copyArray</span>(<span class="parameter-list"><span class="data-type reference return-type array-type"><span class="element-type">Author</span>[]</span> authors</span>)</span> {
+  <span class="variable-declare-init array-init"><span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> arr = new Author[<span class="array-property">authors.length</span>];</span>
+    
+  <div class="block-concept for-loop">for(<span class="loop-init"><span class="variable-declare-init"><span class="data-type primitive">int</span> i = 0</span></span>; <span class="loop-condition"><span class="expression-boolean"> i < <span class="array-property">authors.length</span></span>;</span> <span class="loop-iterator">i++</span>) {
+  <span class="variable-init"><span class="array-element">arr[<span class="array-index">i</span>]</span> = <span class="array-element">authors[<span class="array-index">i</san>]</span>;</span>
+}</div>
+
+  return arr;
+}</div>
+}</div></code>
+</pre>
+
+        <pre class="line-numbers language-java hidden">
+<code class="vocab-code">package com.company;
+        
+<div class="block-concept class-block">public class Book {
+    <span class="variable-declaration class-property">private <span class="data-type reference">String</span> title;</span>
+    <span class="code-concept variable-declaration class-property">private <span class="code-concept data-type reference array-type"><span class="element-type">Author</span>[]</span> authors;</span>
+
+    <div class="block-concept constructor">public Book<span class="parameter-list">(<span class="reference data-type">String</span> title, <span class="reference data-type array-type"><span class="element-type">Author</span>[]</span> authors</span>) {
+    <span class="variable-init class-properties">this.title = title;</span>
+    <span class="variable-init class-properties">this.authors = <span class="method-call">copyArray(authors)</span>;</span>
+}</div>
+    <div class="block-concept method getter">public <span class="code-concept return-type reference data-type">String</span> <span class="method-sig"><span class="method-name">getTitle</span>()</span> {
+    return this.title;
+}</div>
+    <div class="block-concept method getter">public <span class="return-type reference data-type">Author[]</span> <span class="method-sig"><span class="method-name">getAuthors</span>()</span> {
+    return this.authors;
+}</div>
+    <div class="block-concept method shallow-copy">private <span class="datay-type return-type reference array-type"><span class="data-type reference element-type">Author</span>[]</span> <span class="method-sig"><span class="method-name">copyArray</span>(<span class="parameter-list"><span class="data-type reference return-type array-type"><span class="element-type">Author</span>[]</span> authors</span>)</span> {
+    <span class="variable-declare-init array-init"><span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> arr = new Author[<span class="array-property">authors.length</span>];</span>
+    
+    <div class="block-concept for-loop">for(<span class="loop-init"><span class="variable-declare-init"><span class="data-type primitive">int</span> i = 0</span></span>; <span class="loop-condition"><span class="expression-boolean"> i < <span class="array-property">authors.length</span></span>;</span> <span class="loop-iterator">i++</span>) {
+    <span class="variable-init"><span class="array-element">arr[<span class="array-index">i</span>]</span> = <span class="array-element">authors[<span class="array-index">i</span>]</span>;</span>
+}</div>
+
+    return arr;
+}</div>
+}</div></code>
+</pre>
+
+        <pre class="line-numbers language-csharp hidden">
+<code class="vocab-code">using System;
+<div class="block-concept namespace-block">namespace BookCollection
+{   
+    <div class="block-concept class-block">public class Book
+{
+    <span class="class-property">public <span class="data-type reference">string</span> Title</span> { <span class="getter">get;</span> }
+    <span class="class-property">public <span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> Authors</span> { <span class="getter">get;</span> }
+        
+    <div class="block-concept constructor">public Book(<span class="parameter-list"><span class="data-type reference">string</span> title, <span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> authors</span>)
+{
+    <span class="variable-init">this.Title = title;</span>
+    <span class="variable-init">this.Authors = <span class="method-call">CopyArray(authors)</span>;</span>
+}</div>
+    <div class="block-concept method shallow-copy">private <span class="return-type reference array-type"><span class="element-type">Author</span>[]</span> <span class="method-sig"><span class="method-name">CopyArray</span>(<span class="parameter-list"><span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> authors</span>)</span> 
+{
+    <span class="variable-declare-init array-init"><span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> arr = new Author[<span class="array-property">authors.Length</span>];</span>
+          
+    <span class="block-concept for-loop">for(<span class="loop-init"><span class="variable-declare-init"><span class="data-type primitive">int</span> i = 0</span></span>; <span class="loop-condition"><span class="expression-boolean">i < <span class="array-property">authors.Length</span></span></span>; <span class="loop-iterator">i++</span>)
+{
+    <span class="variable-init"><span class="array-element">arr[<span class="array-index">i</span>]</span> = <span class="array-element">authors[<span class="array-index">i</span>]</span></span>;
+}</span>
+    return arr;
+}</div>
+}</div>
+}</div></code></pre>
+
+        <pre class="line-numbers language-ruby hidden">
+<code class="language-ruby">using System;
+<div class="block-concept namespace-block">namespace BookCollection
+{   
+  <div class="block-concept class-block">public class Book
+{
+  <span class="class-property">public <span class="data-type reference">string</span> Title</span> { <span class="getter">get;</span> }
+  <span class="class-property">public <span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> Authors</span> { <span class="getter">get;</span> }
+      
+  <div class="block-concept constructor">public Book(<span class="parameter-list"><span class="data-type reference">string</span> title, <span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> authors</span>)
+{
+  <span class="variable-init">this.Title = title;</span>
+  <span class="variable-init">this.Authors = <span class="method-call">CopyArray(authors)</span>;</span>
+}</div>
+  <div class="block-concept method shallow-copy">private <span class="return-type reference array-type"><span class="element-type">Author</span>[]</span> <span class="method-sig"><span class="method-name">CopyArray</span>(<span class="parameter-list"><span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> authors</span>)</span> 
+{
+  <span class="variable-declare-init array-init"><span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> arr = new Author[<span class="array-property">authors.Length</span>];</span>
+          
+  <span class="block-concept for-loop">for(<span class="loop-init"><span class="variable-declare-init"><span class="data-type primitive">int</span> i = 0</span></span>; <span class="loop-condition"><span class="expression-boolean">i < <span class="array-property">authors.Length</span></span></span>; <span class="loop-iterator">i++</span>)
+{
+  <span class="variable-init"><span class="array-element">arr[<span class="array-index">i</span>]</span> = <span class="array-element">authors[<span class="array-index">i</span>]</span></span>;
+}</span>
+    return arr;
+}</div>
+}</div>
+}</div></code></pre>
+
+      </div> <!-- end code-block (all languages) -->
+      <!-- prettier-ignore-end -->
+    </main>
+    <aside>
+      <div class="top">
+        <div class="sidebar">
+          <ul id="sidebar-groups"></ul>
+        </div>
+      </div>
+      <div class="bottom"></div>
+    </aside>
+
+    <script src="script.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/prism.min.js"
+      integrity="sha512-WkVkkoB31AoI9DAk6SEEEyacH9etQXKUov4JRRuM1Y681VsTq7jYgrRw06cbP6Io7kPsKx+tLFpH/HXZSZ2YEQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/keep-markup/prism-keep-markup.min.js"
+      integrity="sha512-LC5nQYpThDWO3xsegzq9t+OQTcedwKX9ruWEaRsFS5xB1VfTWpOyIBHukVwxJPlNdLVA/Yy31OArNxs7SBrG8g=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/components/prism-java.min.js"
+      integrity="sha512-p2vAaPEsPvlIESCpoEI5IyzZowfdVZ2O39PsrOrkuTQl+AjD57T4L/Wxv5S8WCToLou0twQZaWO+tt660Rqb6Q=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/components/prism-clike.min.js"
+      integrity="sha512-/WJ9ZNER39LEXW4XzFoMR6ct++/HT++A71MDW2gBbUJExj8hFRtde5Q5QzcHyBMxU97VeH1wEHGBRtNuGJpV4w=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/components/prism-csharp.min.js"
+      integrity="sha512-qvSIQfI/qEeMC1E1LMSPCsDl8vFzl0rkBfF6dDcnMJxQT+8M2WjSyDGqHQzZa+RChv3jkdKnZAo99BcAbGsnQg=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.21.0/plugins/line-numbers/prism-line-numbers.min.js"
+      integrity="sha512-1oLZvExT5RaW4q2GgvRPf+XzVVGmsKirfZBRN7aifdOpvZ1L9idEncfMFlfHiQNGBA+Sev+alscSAT/xQ0rwXA=="
+      crossorigin="anonymous"
+    ></script>
+
+
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- <script>hljs.highlightAll();</script> -->
+  </body>
+</html>
