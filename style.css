@@ -272,3 +272,18 @@ aside {
 .hidden {
   display: none;
 }
+
+/****    iFRAME CONTENT    ****/
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.javascript-code > * {
+  border: 0;
+}
+
+
+.javascript-code > * {
+  color: white;
+}

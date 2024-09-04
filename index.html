@@ -1,4 +1,4 @@
-<!-- original code taken from the browser tools of programming-vocab.netlify.app -->
+<!-- original code for this project was taken from the browser tools of programming-vocab.netlify.app -->
 <!DOCTYPE html>
 
 <html lang="en">
@@ -69,81 +69,7 @@
       <!-- prettier-ignore-start -->
       <div class="code-block">
         <pre class="line-numbers language-javascript">
-<code class="language-javascript vocab-code"><div class="block-concept class-block">//quick syntax
-let pets = [];
-pets.push("cat");
-
-
-for (let i = 0; i < 4; i++) {
-  total += arr[i];
-}
-</div>
-  
-  
-<div class="block-concept class-block">class Product {
-  <span class="variable-declaration class-property">price;</span>
-  <span class="code-concept variable-declaration class-property">manufacturer;</span>
-</div>
-
-  <div class="block-concept constructor">constructor<span class="parameter-list">(price, manufacturer</span>) {
-    <span class="variable-init class-properties">this.price = price;</span>
-    <span class="variable-init class-properties">this.manufacturer = manufacturer;</span>
-}</div>
-
-  <div class="block-concept method getter"><span class="method-sig">get <span class="method-name">price</span>()</span> {
-    return this.price;
-}</div>
-
-  <div class="block-concept method setter"><span class="method-sig">set <span class="method-name">price</span>()</span> {
-    if (price < 0.00) {
-        console.log("Price cannot be negative.");
-    } else {
-        this.price = price;
-    }
-}</div>
-  
-  <div class="block-concept method getter"><span class="method-sig">get <span class="method-name">manufacturer</span>()</span> {
-    return this.manufacturer;
-}</div>
-   
-  <div class="block-concept method setter"><span class="method-sig">set <span class="method-name">manufacturer</span>(<span class="parameter-list">manufacturer</span>)</span> {
-    this.manufacturer = manufacturer;
-}</div>
-}
-
-<div class="block-concept class-block">class Book extends Product {
-  <span class="variable-declaration class-property">title = "";</span>
-  <span class="code-concept variable-declaration class-property">authors = [];</span>
-  <span class="code-concept variable-declaration class-property">#privateprop;</span>
-
-  <div class="block-concept constructor">constructor(<span class="parameter-list">price, manufacturer, title, authors, privateprop</span>) {
-    // must reference superclass constructor elements first
-    <span class="variable-init class-properties">super(price);</span>
-    <span class="variable-init class-properties">super(manufacturer);</span>
-    <span class="variable-init class-properties">this.title = title;</span>
-    <span class="variable-init class-properties">this.authors = <span class="method-call">copyArray(authors)</span>;</span>
-    // this property cannot be accessed outside of the class (but it can be in Chrome)
-    <span class="variable-init class-properties">this.#privateprop = privateprop;</span>
-}</div>
-    
-  <div class="block-concept method getter"><span class="method-sig">get <span class="method-name">title</span>()</span> {
-    return this.title;
-}</div>
-    
-  <div class="block-concept method getter"><span class="method-sig">get <span class="method-name">authors</span>()</span> {
-    return this.authors;
-}</div>
-
-  <div class="block-concept method shallow-copy"><span class="method-sig"><span class="method-name">copyArray</span>(<span class="parameter-list"><span class="data-type reference return-type array-type"><span class="element-type">Author</span>[]</span> authors</span>)</span> {
-  <span class="variable-declare-init array-init"><span class="data-type reference array-type"><span class="element-type">Author</span>[]</span> arr = new Author[<span class="array-property">authors.length</span>];</span>
-    
-  <div class="block-concept for-loop">for(<span class="loop-init"><span class="variable-declare-init"><span class="data-type primitive">int</span> i = 0</span></span>; <span class="loop-condition"><span class="expression-boolean"> i < <span class="array-property">authors.length</span></span>;</span> <span class="loop-iterator">i++</span>) {
-  <span class="variable-init"><span class="array-element">arr[<span class="array-index">i</span>]</span> = <span class="array-element">authors[<span class="array-index">i</san>]</span>;</span>
-}</div>
-
-  return arr;
-}</div>
-}</div></code>
+<iframe src="javascript.html" class="javascript-code"></iframe>
 </pre>
 
         <pre class="line-numbers language-java hidden">
