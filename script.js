@@ -7,6 +7,7 @@ let themes = {
 
 const state = {
   concept: null,
+  conceptList: "syntax",
   language: "javascript",
   theme: "dark",
   topic: null,
@@ -31,7 +32,7 @@ vocab = {
   }
 }
 
-const concepts = [
+const syntaxConcepts = [
   {
     title: "Data Types",
     collapsible: true,
@@ -100,11 +101,10 @@ const concepts = [
   },
 ];
 
-function loadConceptList() {
-  let index = 0;
-  concepts.forEach((concept) => {
-    const parent = document.getElementById("sidebar-groups");
-
+// i should refactor this to accept an argument for what type of list to take in and then assign the few relevant classes/ids dynamically, but for now i just want it to work independently as a record of a nonbroken instance i can constantly reference.
+function loadSyntaxConceptList() {
+  const parent = document.getElementById("syntax-groups");
+  syntaxConcepts.forEach((concept) => {
     // Build Sidebar Headings
     const heading = document.createElement("section");
     heading.classList.add("sidebar-group");
@@ -113,7 +113,41 @@ function loadConceptList() {
     p.classList.add("sidebar-heading");
     heading.appendChild(p);
     const ul = document.createElement("ul");
-    ul.classList.add("sidebar-links", "sidegar-group-links");
+    ul.classList.add("sidebar-links", "sidebar-group-links");
+    ul.style.display = "inline-block";
+
+    //Build submenus
+    concept.children.forEach((child) => {
+      li = document.createElement("li");
+      a = document.createElement("a");
+      a.classList.add("sidebar-link");
+      a.setAttribute("href", "#" + child[0]);
+      a.innerText = child[1];
+      a.setAttribute("concept-name", child[0]);
+      li.appendChild(a);
+
+      a.addEventListener("click", (e) => {
+        selectConcept(e, child[0]);
+      }); 
+      ul.appendChild(li);
+    });
+    heading.appendChild(ul);
+    parent.appendChild(heading);
+  });
+}
+
+function loadFrameworkConceptList() {
+  const parent = document.getElementById("framework-groups");
+  frameworkConcepts.forEach((concept) => {
+    // Build Sidebar Headings
+    const heading = document.createElement("section");
+    heading.classList.add("framework-group");
+    const p = document.createElement("p");
+    p.innerText = concept.title;
+    p.classList.add("sidebar-heading");
+    heading.appendChild(p);
+    const ul = document.createElement("ul");
+    ul.classList.add("sidebar-links", "sidebar-group-links");
     ul.style.display = "inline-block";
 
     //Build submenus
@@ -150,15 +184,16 @@ function selectConcept(e, choice) {
   }
 }
 
-document.querySelector(".bottom").addEventListener("click", (e) => {
-  selectedTheme = e.target.id;
+// ...i have no idea what this is. "bottom" was an empty element below the aside list on the right.
+// document.querySelector(".bottom").addEventListener("click", (e) => {
+//   selectedTheme = e.target.id;
 
-  document.querySelector(".theme").classList.remove(state.theme + "-theme");
-  document.querySelector(".theme").classList.add(selectedTheme + "-theme");
-  state.theme = selectedTheme;
-  document.getElementById("prismstyle").href = themes[e.target.id];
-  localStorage.setItem("themePref", e.target.id);
-});
+//   document.querySelector(".theme").classList.remove(state.theme + "-theme");
+//   document.querySelector(".theme").classList.add(selectedTheme + "-theme");
+//   state.theme = selectedTheme;
+//   document.getElementById("prismstyle").href = themes[e.target.id];
+//   localStorage.setItem("themePref", e.target.id);
+// });
 
 document
   .querySelector(".theme-switcher.hidden")
@@ -238,7 +273,7 @@ document.addEventListener("readystatechange", () => {
 document.addEventListener("DOMContentLoaded", () => {
 
   setTheme(localStorage.getItem("themePref") ?? state.theme);
-  loadConceptList();
+  loadSyntaxConceptList();
   //state.concept = getAnchor();
 });
 
