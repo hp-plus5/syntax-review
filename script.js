@@ -101,9 +101,51 @@ const syntaxConcepts = [
   },
 ];
 
+// this isn't an final means of organization. currently i'm just trying to throw content on the page so that I can arrange it somehow with the existing sidebar.
+const frameworkConcepts = [
+  {
+    title: "Terminology",
+    collapsible: true,
+    children: [
+      ["pure-components", "Pure Components"],
+      ["immutability", "Immutability"],
+      ["controlled-components", "Controlled Components"],
+    ],
+  },
+  {
+    title: "Summoning Data",
+    collapsible: true,
+    children: [
+      ["basic-api-call", "Basic API Call"],
+      ["local-storage", "Local Storage"],
+    ],
+  },
+  {
+    title: "Notes",
+    collapsible: true,
+    children: [
+      ["anonymous-functions", "Anonymous Functions"],
+      ["immutability", "Immutability"],
+      ["controlled-components", "Controlled Components"],
+    ],
+  },
+];
+
+// this is not used anywhere currently, but I'd love as a stretch goal for it to become a category alongside languages? maybe? Depends on what my content was gonna be, I suppose.
+const designPatterns = [
+  {
+    title: "Patterns",
+    collapsible: true,
+    children: [
+      ["command-pattern", "Command Pattern"],
+      ["mvc", "MVC"],
+    ],
+  },
+]
+
 // i should refactor this to accept an argument for what type of list to take in and then assign the few relevant classes/ids dynamically, but for now i just want it to work independently as a record of a nonbroken instance i can constantly reference.
 function loadSyntaxConceptList() {
-  const parent = document.getElementById("syntax-groups");
+  const parent = document.getElementById("concept-syntax");
   syntaxConcepts.forEach((concept) => {
     // Build Sidebar Headings
     const heading = document.createElement("section");
@@ -137,7 +179,7 @@ function loadSyntaxConceptList() {
 }
 
 function loadFrameworkConceptList() {
-  const parent = document.getElementById("framework-groups");
+  const parent = document.getElementById("concept-framework");
   frameworkConcepts.forEach((concept) => {
     // Build Sidebar Headings
     const heading = document.createElement("section");
@@ -221,7 +263,6 @@ document.querySelectorAll(".lang-btn").forEach((item) => {
   });
 });
 
-
 function setLang() {
   state.title = vocab[state.language].title;
   document.title = state.title;
@@ -254,6 +295,47 @@ function setCodeVisibility() {
   });
 }
 
+/*  SWAPPING CONTENT ON SIDEBAR  */
+document.querySelectorAll(".concept-list-btn").forEach((item) => {
+  item.addEventListener("click", (e) => {
+    
+    if (e.target.dataset.conceptlist !== state.conceptList)  {
+      state.conceptList = e.target.dataset.conceptlist;
+      setConceptList();
+    }
+   
+  });
+});
+
+function setConceptListVisibility() {
+  Array.from(document.getElementsByClassName("concept-list")).forEach((ul) => {
+    if(ul.id == "concept-" + state.conceptList) {
+      ul.classList.remove("hidden");
+    } else {
+      ul.classList.add("hidden");
+    }
+  });
+}
+
+function setConceptList() {
+  localStorage.setItem("conceptListPref", state.conceptList);
+  setConceptListBtnState();
+  setConceptListVisibility();
+}
+
+function setConceptListBtnState() {
+  Array.from(document.querySelectorAll(".concept-list-btn")).forEach((btn) => {
+    if(btn.dataset.conceptlist === state.conceptList) {
+      btn.classList.remove("deselected");
+      btn.classList.add("selected");
+    } else {
+      btn.classList.remove("selected");
+      btn.classList.add("deselected");
+    }
+  });
+}
+/*  END OF SWAPPING CONTENT ON SIDEBAR  */
+
 function setPageTitle() {
   title = langs[langs.findIndex(x => state.language === x.name)].title;
   document.querySelector(".site-name").innerText = title;
@@ -265,6 +347,8 @@ document.addEventListener("readystatechange", () => {
   if(document.readyState === "interactive") {
     state.language = localStorage.getItem("languagePref") ?? state.language;
     setLang();
+    state.conceptList = localStorage.getItem("conceptListPref") ?? state.conceptList;
+    setConceptList();
     state.theme = localStorage.getItem("themePref") ?? state.theme;
     document.getElementById("prismstyle").href = themes[state.theme];
   }
@@ -274,6 +358,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setTheme(localStorage.getItem("themePref") ?? state.theme);
   loadSyntaxConceptList();
+  loadFrameworkConceptList();
   //state.concept = getAnchor();
 });
 

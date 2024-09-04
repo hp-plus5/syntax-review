@@ -233,14 +233,18 @@ for (let i = 0; i < 4; i++) {
       <!-- prettier-ignore-end -->
     </main>
     <aside>
-      <div class="top">
+      <div id="concept-buttons">
+        <a class="concept-list-btn syntax" href="#" data-conceptlist="syntax" data-state="active" value="syntax">Syntax</a>
+        <a class="concept-list-btn framework" href="#" data-conceptlist="framework" data-state="inactive" value="framework">Framework</a>
+      </div>
+      <div class="concept-list-container">
         <div class="sidebar">
-          <ul id="syntax-groups"></ul>
+          <ul id="concept-syntax" class="concept-list"></ul>
         </div>
       </div>
-      <div class="bottom">
+      <div class="concept-list-container">
         <div class="sidebar">
-          <ul id="framework-groups"></ul>
+          <ul id="concept-framework" class="concept-list hidden"></ul>
         </div>
       </div>
     </aside>

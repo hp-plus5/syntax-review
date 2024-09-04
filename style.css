@@ -133,17 +133,32 @@ header .site-name {
   background: var(--background-color);
 }
 
+.concept-list-btn {
+  position: relative;
+  width: 90px;
+  padding: 3px 0px 3px 0px;
+  text-align: center;
+  border-radius: 50px;
+  border: 1px solid var(--text-color);
+  background: var(--background-color);
+}
+
 .lang-label.selected,
-.lang-btn.selected {
+.lang-btn.selected,
+.concept-list-btn.selected {
   color: var(--background-color);
   background: var(--text-color);
 }
 
-.lang-label:hover, .lang-btn:hover {
+.lang-label:hover, 
+.lang-btn:hover, 
+.concept-list-btn:hover {
   text-decoration: none;
 }
 
-.lang-label.deselected:hover, .lang-btn.deselected:hover {
+.lang-label.deselected:hover, 
+.lang-btn.deselected:hover, 
+.concept-list-btn.deselected:hover {
   background: var(--text-color);
   color: var(--background-color);
 }
@@ -167,12 +182,10 @@ aside {
   overflow-y: auto;
 }
 
-#sidebar-groups {
-  height: 100%;
-}
-
-.top, .bottom {
-  padding-top: 5px;
+#concept-buttons {
+  margin: 0.5em;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .sidebar ul {
@@ -199,7 +212,6 @@ aside {
   margin: 0px 0px 2px 0px; 
 }
 
-
 .sidebar-link {
   padding: 3px 10px 3px 10px;
 }
@@ -217,7 +229,7 @@ a:active, a:hover {
   text-decoration: underline;
 }
 
-.top ul, .bottom ul {
+.concept-list ul {
   padding-right: 0;
   list-style-type: none;
 }
