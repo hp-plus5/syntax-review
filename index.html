@@ -81,7 +81,8 @@ for (let i = 0; i < 4; i++) {
 }
 </div>
 
-// ~~~ fancy code
+/* class code more easily comparable to 
+existing Java and C# syntax samples */
 <div class="block-concept class-block">class Product {
   <span class="variable-declaration class-property">price;</span>
   <span class="code-concept variable-declaration class-property">manufacturer;</span>
@@ -113,6 +114,7 @@ for (let i = 0; i < 4; i++) {
 }</div>
 }
 
+/* can't say i've focused on content yet */
 <div class="block-concept class-block">class Book extends Product {
   <span class="variable-declaration class-property">title = "";</span>
   <span class="code-concept variable-declaration class-property">authors = [];</span>
@@ -124,7 +126,8 @@ for (let i = 0; i < 4; i++) {
     <span class="variable-init class-properties">super(manufacturer);</span>
     <span class="variable-init class-properties">this.title = title;</span>
     <span class="variable-init class-properties">this.authors = <span class="method-call">copyArray(authors)</span>;</span>
-    // this property cannot be accessed outside of the class (but it can be in Chrome)
+    /* this property cannot be accessed outside of the
+    class (but it can be in Chrome) */
     <span class="variable-init class-properties">this.#privateprop = privateprop;</span>
 }</div>
     

@@ -125,7 +125,7 @@ header .site-name {
 .lang-btn {
   position: relative;
   width: 75px;
-  padding: 3px 0px 3px 0px;
+  padding: 3px 5px;
   margin-right: 20px;
   text-align: center;
   border-radius: 50px;
@@ -136,7 +136,7 @@ header .site-name {
 .concept-list-btn {
   position: relative;
   width: 90px;
-  padding: 3px 0px 3px 0px;
+  padding: 3px 5px;
   text-align: center;
   border-radius: 50px;
   border: 1px solid var(--text-color);

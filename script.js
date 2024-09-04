@@ -280,7 +280,6 @@ function setCodeVisibility() {
     } else {
       pre.classList.add("hidden");
     }
-    
   });
 }
 
