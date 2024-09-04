@@ -226,17 +226,6 @@ function selectConcept(e, choice) {
   }
 }
 
-// ...i have no idea what this is. "bottom" was an empty element below the aside list on the right.
-// document.querySelector(".bottom").addEventListener("click", (e) => {
-//   selectedTheme = e.target.id;
-
-//   document.querySelector(".theme").classList.remove(state.theme + "-theme");
-//   document.querySelector(".theme").classList.add(selectedTheme + "-theme");
-//   state.theme = selectedTheme;
-//   document.getElementById("prismstyle").href = themes[e.target.id];
-//   localStorage.setItem("themePref", e.target.id);
-// });
-
 document
   .querySelector(".theme-switcher.hidden")
   .addEventListener("change", (e) => {

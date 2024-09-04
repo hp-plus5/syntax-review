@@ -121,7 +121,7 @@ header .site-name {
   line-height: 0.85em;
 } */
 
-.lang-label,   /* this class does not exist, but maybe i'll use it again someday, i dunno */
+.lang-label,   /* this class does not exist, but maybe i'll use it again someday, i dunno. leaving it elsewhere. */
 .lang-btn {
   position: relative;
   width: 75px;
@@ -248,18 +248,16 @@ aside {
   font-size: 16px;
 }
 
-/* this doesn't apply to anything */
-#concept-list {
+/* these don't apply to anything */
+/* #concept-list {
   margin-left: 10px;
   margin-bottom: 10px;
 }
-
-/* code-concept exists, but not concept-list */
 #concept-list > .code-concept:hover {
   color: cornflowerblue;
   cursor: default;
   background-color: var(--highlight-color);
-}
+} */
 
 .sidebar-links > li:hover :not(.selected-concept) {
   color: var(--outline-color);
